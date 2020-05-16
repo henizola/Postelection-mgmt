@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from '../../components/Form/form.component';
 import  './sign-in.styles.css';
+import CustomButton from '../../components/custom-button/custom-button.component';
 
 class SignIn extends React.Component{
 
@@ -8,7 +9,11 @@ class SignIn extends React.Component{
             super(props);
             this.state={
                             email:'',
-                            password:''
+                            password:'',
+                            admin:'admin@gmail.com',
+                            adminpassword:'passme',
+                            region:'region@gmail.com',
+                            regionpassword:'passregion'
                         }
         }
 
@@ -17,11 +22,24 @@ class SignIn extends React.Component{
         
             this.setState({ [name]: value });
           };
+
+        handleSubmit=(event)=>{
+            event.preventDefault();
+            if(this.state.email===this.state.admin&&this.state.adminpassword===this.state.password){
+                this.props.history.push("/balot-registeration")
+            }
+            else if(this.state.email===this.state.region&&this.state.regionpassword===this.state.password){
+                this.props.history.push("/region")
+            }
+            else{
+                alert("Wrong email or password")
+            }
+        }
         render(){
             return <div className="sign-in-container">
                       <div className="picture"/>
                         <div className="form">
-                            <form>
+                            <form onSubmit={this.handleSubmit}>
                                 <Form 
                                 name='email'
                                 label='Email'
@@ -38,7 +56,7 @@ class SignIn extends React.Component{
                                     label='password'
                                     required
                                  />
-
+                                <CustomButton>Sign-in</CustomButton>
                             </form>
                         </div>
                     </div>

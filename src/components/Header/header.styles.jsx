@@ -10,6 +10,9 @@ export const Title=styled.h1`
     text-align: center;
     margin: auto;
     @media(max-width:768px){
+        font-size:40px;
+    }
+    @media(max-width:414px){
         font-size:20px;
     }
     

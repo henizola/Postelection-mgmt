@@ -3,7 +3,7 @@
     grid-template-rows: 100px 1fr;
     grid-template-areas: "header" "body";
 }
-.header{
+.head{
     display: grid;
     grid-area: header;
 }
@@ -12,10 +12,30 @@
     grid-area: body;
 }
 
+
 @media(max-width:768px){
     .App{
         display: grid;
-        grid-template-rows: 1fr 3fr;
+        grid-template-rows: 1fr 5fr;
         grid-template-areas: "header" "body";
+    }
+    .head{
+        display: grid;
+        grid-area: header;
+        grid-template-columns: 100px 1fr;
+        grid-template-areas: "logo title";
+    }
+    .logo{
+        grid-area: logo; 
+        height: 100px;
+        width: 100px;
+        background-image: url(./pages/sign-in/imageedit_3_2467444734.png);
+        grid-area: logo;
+        background-repeat: no-repeat;
+        background-size: 100px 100px;
+        margin-top: -10px;
+    }
+    .header{
+        grid-area: title;
     }
 }
