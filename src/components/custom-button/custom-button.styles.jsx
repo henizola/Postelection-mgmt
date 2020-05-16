@@ -9,7 +9,6 @@ line-height: 50px;
 padding: 0 35px 0 35px;
 font-size: 15px;
 text-transform: uppercase;
-font-family: 'Open Sans Condensed';
 font-weight: bolder;
 cursor: pointer;
 display: flex;
@@ -17,9 +16,9 @@ justify-content: center;
 
   border: 1px solid black;
 color: black;
-background:transparent;
+background-color: white;
 &:hover {
-    background-color: #fcba03;
+    background-color: rgb(28, 129, 129);
     color: black;
     border: 1px solid black;
   }

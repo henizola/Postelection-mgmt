@@ -29,7 +29,7 @@ class SignIn extends React.Component{
                 this.props.history.push("/balot-registeration")
             }
             else if(this.state.email===this.state.region&&this.state.regionpassword===this.state.password){
-                this.props.history.push("/region")
+                this.props.history.push("/region/Home")
             }
             else{
                 alert("Wrong email or password")
