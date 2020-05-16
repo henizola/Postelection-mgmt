@@ -1,0 +1,31 @@
+.sign-in-container{
+    height: 81vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "picture form";
+}
+
+.picture{
+    display: grid;
+    background-image: url(./Logo1.png);
+    grid-area: picture;
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+}
+
+.form{
+    grid-area: form;
+    width:70% ;
+    margin: auto;
+    margin-top: 10%;
+}
+
+@media(max-width:768px){
+    .sign-in-container{
+        height: 81vh;
+        display: grid;
+        grid-template-columns:1fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas: "form" "Picture";
+    }
+}
