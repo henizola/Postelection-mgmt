@@ -8,39 +8,33 @@ export class RegionProvider extends React.Component{
            name:'Oromiya',
             ballotsIssued:[1000,2000],
             constitiuents:[
-                        {name:'Bishoftu',
-                            balotsIssued:[10200,10400],
-                            ballotsWasted:[],
-                            ballotsUnused:[],
-                            votersRegisterd:89,
-                            votes:[],
-                            votersVoted:[]},
+                        
                         {name:'Dukam',
                             balotsIssued:[10400,10600],
-                            ballotsWasted:[5],
-                            ballotsUnused:[],
+                            ballotsWasted:0,
+                            ballotsUnused:0,
                             votersRegisterd:89,
-                            votes:[],
+                            votes:0,
                             },
                         {name:'Mojo', 
                             balotsIssued:[10600,10800],
-                            ballotsWasted:[],
-                            ballotsUnused:[7],
+                            ballotsWasted:0,
+                            ballotsUnused:0,
                             votersRegisterd:89,
-                            votes:[],
+                            votes:0,
                             },
                         {name:'Gelan',
                             balotsIssued:[10800,11000],
-                            ballotsWasted:[],
-                            ballotsUnused:[1,1,2,3,4,5,6,],
+                            ballotsWasted:0,
+                            ballotsUnused:0,
                             votersRegisterd:89,
-                            votes:[],
+                            votes:0,
                             },
                         {name:'Adama',
                             balotsIssued:[10100,10200],
-                            ballotsWasted:[],
-                            ballotsUnused:[],
-                            votes:[14],
+                            ballotsWasted:0,
+                            ballotsUnused:0,
+                            votes:0,
                             votersRegisterd:89,}
                     ]
              
@@ -54,8 +48,19 @@ export class RegionProvider extends React.Component{
     }
     getVoted=()=>{
         let vote=0;
-        this.state.constitiuents.map(city=>vote+=city.votes.length)
+        this.state.constitiuents.map(city=>vote+=city.votes)
         return vote;
+    }
+    addData=(west,vote,unused)=>{
+        let used=[...this.state.constitiuents]
+        used.push({name:'Bishoftu',
+        balotsIssued:[10200,10400],
+        ballotsWasted:west,
+        ballotsUnused:unused,
+        votersRegisterd:89,
+        votes:vote,},)
+        this.setState({constitiuents:used});
+        console.log(used);
     }
     
 render(){
@@ -65,7 +70,8 @@ render(){
             {
                 region:this.state,
                 registerd:this.getRegisterd,
-                getVoted:this.getVoted
+                getVoted:this.getVoted,
+                addData:this.addData
             }
         }>
             {

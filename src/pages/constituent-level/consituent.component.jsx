@@ -9,6 +9,7 @@ class ConstituentLevel extends React.Component{
         this.state={
             unused:'',
             wasted:'',
+            votes:''
         }
     }
 
@@ -27,7 +28,9 @@ class ConstituentLevel extends React.Component{
             </hr>
        <div className='balot-regstration'>
        {this.props.history.location.pathname==='/constituent/unused-ballots'?
-       <form onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/constituent/wasted-ballots')}}>
+       <form onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/region/Constitiuents')
+            context.addData(this.state.unused,this.state.votes,this.state.wasted)
+       }}>
                     <h3>provide the first number of unused ballots</h3>
                 <Form 
                     name='unused'
@@ -36,11 +39,7 @@ class ConstituentLevel extends React.Component{
                     type='text'
                     required
                     handleChange={this.handleChange}
-                    />
-                <CustomButton>Next</CustomButton>
-            </form>:this.props.history.location.pathname==='/constituent/wasted-ballots'?
-            <form  onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/constituent/vote-registeration')}}>
-            <Form 
+                    /><Form 
                     name='wasted'
                     value={this.state.wasted}
                     label='wasted ballot number'
@@ -48,7 +47,15 @@ class ConstituentLevel extends React.Component{
                     required
                     handleChange={this.handleChange}
                     />
-                    <CustomButton onClick={context.registerVote}>Next</CustomButton>
+                    <Form 
+                    name='votes'
+                    value={this.state.votes}
+                    label='wasted ballot number'
+                    type='text'
+                    required
+                    handleChange={this.handleChange}
+                    />
+                <CustomButton>Next</CustomButton>
             </form>:<div></div> }  
             
             </div>

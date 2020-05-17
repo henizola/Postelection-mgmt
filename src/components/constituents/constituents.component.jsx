@@ -27,10 +27,10 @@ const Constituent=()=>{
                 <th>{element.name}</th> 
                 <th style={{paddingLeft:'55px'}}>{element.votersRegisterd}</th>
                 <th>{element.balotsIssued[0]}-{element.balotsIssued[1]}</th>
-                <th style={{paddingLeft:'35px'}}>{element.balotsIssued[1]-element.balotsIssued[0]-element.ballotsUnused.length}</th>
-                <th style={{paddingLeft:'55px'}}>{element.ballotsUnused.length}</th>
-                <th style={{paddingLeft:'55px'}}>{element.ballotsWasted.length}</th>
-                <th style={{paddingLeft:'55px'}}>{element.votes.length}</th>
+                <th style={{paddingLeft:'35px'}}>{element.votes===0?<span>not submited</span>:element.votes}</th>
+                <th style={{paddingLeft:'55px'}}>{element.ballotsUnused===0?<span>not submited</span>:element.ballotsUnused}</th>
+                <th style={{paddingLeft:'55px'}}>{element.ballotsWasted===0?<span>not submited</span>:element.ballotsWasted}</th>
+                <th style={{paddingLeft:'55px'}}>{element.votes===0?<span>not submited</span>:element.votes}</th>
              </tr>
           )}</tbody>
                 
