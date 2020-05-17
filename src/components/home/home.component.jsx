@@ -16,12 +16,12 @@ const Home=({region})=>{
                          <div className='item'>
                             <h2 className='constitiuents'>voters Registerd</h2>
                             <hr></hr>
-                            <h1 className='constitiuents'>{context.registerd}</h1>
+                            <h1 className='constitiuents'>{context.registerd()}</h1>
                          </div>
                         <div className='item'>
                             <h2 className='constitiuents'>voters voted</h2>
                             <hr></hr>
-                            <h1 className='constitiuents'>{context.getVoted}</h1>
+                            <h1 className='constitiuents'>{context.getVoted()}</h1>
                         </div>
                      </React.Fragment>
 

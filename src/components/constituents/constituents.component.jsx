@@ -11,9 +11,7 @@ const Constituent=()=>{
                        context=><table >
             
             <thead >
-          
-                 <tr>
-                 
+                <tr> 
                 <th >Constitiuent Name</th>
                 <th>Voters Registerd</th>
                 <th>Ballots Issued</th>
@@ -24,7 +22,8 @@ const Constituent=()=>{
             </tr>
             </thead>
            
-               <tbody> {context.region.constitiuents.map((element,index) => <tr key={index} >
+               <tbody> 
+                {context.region.constitiuents.map((element,index) =><tr key={index} >
                 <th>{element.name}</th> 
                 <th style={{paddingLeft:'55px'}}>{element.votersRegisterd}</th>
                 <th>{element.balotsIssued[0]}-{element.balotsIssued[1]}</th>

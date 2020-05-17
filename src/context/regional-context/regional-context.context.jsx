@@ -4,8 +4,8 @@ export const RegionContext=createContext();
 
 export class RegionProvider extends React.Component{
     state={
-        region:[
-            {name:'Oromiya',
+            isSigndIn:true,
+           name:'Oromiya',
             ballotsIssued:[1000,2000],
             constitiuents:[
                         {name:'Bishoftu',
@@ -43,27 +43,29 @@ export class RegionProvider extends React.Component{
                             votes:[14],
                             votersRegisterd:89,}
                     ]
-                }
-        ]
+             
+            
     }
     getRegisterd=()=>{
         let regist=0;
-        this.state.region[0].constitiuents.map(city=>regist+=city.votersRegisterd)
+        console.log(this.state.constitiuents)
+        this.state.constitiuents.map(city=>regist+=city.votersRegisterd)
         return regist;
     }
     getVoted=()=>{
         let vote=0;
-        this.state.region[0].constitiuents.map(city=>vote+=city.votes.length)
+        this.state.constitiuents.map(city=>vote+=city.votes.length)
         return vote;
     }
+    
 render(){
 
      return(
         <RegionContext.Provider value={
             {
-                region:this.state.region[0],
-                registerd:this.getRegisterd(),
-                getVoted:this.getVoted()
+                region:this.state,
+                registerd:this.getRegisterd,
+                getVoted:this.getVoted
             }
         }>
             {

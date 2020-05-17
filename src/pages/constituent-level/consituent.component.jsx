@@ -2,6 +2,7 @@ import React from 'react';
 import Form from '../../components/Form/form.component'
 import './consituent.styles.scss'
 import CustomButton from '../../components/custom-button/custom-button.component';
+import { RegionContext } from '../../context/regional-context/regional-context.context';
 class ConstituentLevel extends React.Component{
     constructor(props){
         super(props);
@@ -19,38 +20,44 @@ class ConstituentLevel extends React.Component{
     
     render(){
         console.log(this.props.history.location.pathname)
-    return <div className="const-container">    
-                <hr className='progress-bar'>
-                </hr>
-           <div className='balot-regstration'>
-           {this.props.history.location.pathname==='/constituent/unused-ballots'?
-           <form onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/constituent/wasted-ballots')}}>
-                        <h3>provide the first number of unused ballots</h3>
-                    <Form 
-                        name='unused'
-                        value={this.state.unused}
-                        label='Unused Ballot nummber'
-                        type='text'
-                        required
-                        handleChange={this.handleChange}
-                        />
-                    <CustomButton>Next</CustomButton>
-                </form>:this.props.history.location.pathname==='/constituent/wasted-ballots'?
-                <form  onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/constituent/vote-registeration')}}>
+    return <RegionContext.Consumer>
+        {
+            context=><div className="const-container">    
+            <hr className='progress-bar'>
+            </hr>
+       <div className='balot-regstration'>
+       {this.props.history.location.pathname==='/constituent/unused-ballots'?
+       <form onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/constituent/wasted-ballots')}}>
+                    <h3>provide the first number of unused ballots</h3>
                 <Form 
-                        name='wasted'
-                        value={this.state.wasted}
-                        label='wasted ballot number'
-                        type='text'
-                        required
-                        handleChange={this.handleChange}
-                        />
-                        <CustomButton>Next</CustomButton>
-                </form>:<div></div> }  
-                
-                </div>
-               
-            </div>}
+                    name='unused'
+                    value={this.state.unused}
+                    label='Unused Ballot nummber'
+                    type='text'
+                    required
+                    handleChange={this.handleChange}
+                    />
+                <CustomButton>Next</CustomButton>
+            </form>:this.props.history.location.pathname==='/constituent/wasted-ballots'?
+            <form  onSubmit={(event)=>{event.preventDefault(); this.props.history.push('/constituent/vote-registeration')}}>
+            <Form 
+                    name='wasted'
+                    value={this.state.wasted}
+                    label='wasted ballot number'
+                    type='text'
+                    required
+                    handleChange={this.handleChange}
+                    />
+                    <CustomButton onClick={context.registerVote}>Next</CustomButton>
+            </form>:<div></div> }  
+            
+            </div>
+           
+        </div>
+        }
+    </RegionContext.Consumer>
+
+    }
 
 
 }
