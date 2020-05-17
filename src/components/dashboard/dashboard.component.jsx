@@ -7,16 +7,7 @@ const Dashboard=({props,name})=>{
                <Dashcontainer onClick={()=>props.history.push(`${props.match.url}/${name}`)}>
                     {name}
                     </Dashcontainer>
-                {/* <Dashcontainer onClick={
-                                ()=>props.history.push(`${props.match.url}/constitiuents`)
-                            }>Constitiuents</Dashcontainer>
-                <Dashcontainer
-                onClick={
-                    ()=>props.history.push(`${props.match.path}/other`)
-                }
-                >Other</Dashcontainer> */}
-
-            </div>
+               </div>
 
     );
 }

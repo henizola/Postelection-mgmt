@@ -4,6 +4,8 @@ import {Header} from './components/Header/header.component'
 import './app.css'
 import {Route} from 'react-router-dom'
 import RegionalDashBoard from './pages/regional-level/dash-board.component';
+import ConstituentLevel from './pages/constituent-level/consituent.component';
+import { RegionProvider } from './context/regional-context/regional-context.context';
 
 
 function App() {
@@ -15,11 +17,14 @@ function App() {
             <Header />
           </div>
       </div>
-    
-        <div className='body'>
+          <RegionProvider>
+            <div className='body'>
           <Route exact path='/' component={SignIn}/>
           <Route  path='/region' component={RegionalDashBoard}/>
+          <Route  path='/constituent' component={ConstituentLevel}/>
         </div>
+          </RegionProvider>
+        
         <div className='footer'>
           
         </div>

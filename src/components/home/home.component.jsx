@@ -1,27 +1,39 @@
 import React from 'react';
 import './home.styles.css'
-
+import { RegionContext } from '../../context/regional-context/regional-context.context';
 const Home=({region})=>{
-    let voted=0,voters=0;
-    region.constitiuents.map(element=>{voters+=element.votersRegisterd;voted+=element.votersVoted})
-    return(
+ return( 
         <div className="home-container">
-         <div className='item'>
-             <h2 className='constitiuents'>constituents in region{region.name}</h2>
-             <hr></hr>
-            <h1 className='constitiuents'>{region.constitiuents.length}</h1>
-        </div>
+        
+             <RegionContext.Consumer>
+                 {
+                     context=><React.Fragment>
+                          <div className='item'>
+                            <h2 className='constitiuents'>constituents in region {context.region.name}</h2>
+                              <hr></hr>
+                            <h1 className='constitiuents'>{context.region.constitiuents.length}</h1>
+                         </div> 
+                         <div className='item'>
+                            <h2 className='constitiuents'>voters Registerd</h2>
+                            <hr></hr>
+                            <h1 className='constitiuents'>{context.registerd}</h1>
+                         </div>
+                        <div className='item'>
+                            <h2 className='constitiuents'>voters voted</h2>
+                            <hr></hr>
+                            <h1 className='constitiuents'>{context.getVoted}</h1>
+                        </div>
+                     </React.Fragment>
+
+                     
+                 }
+             </RegionContext.Consumer>
+            
+             
+            
+     
          
-        <div className='item'>
-             <h2 className='constitiuents'>voters Registerd</h2>
-             <hr></hr>
-            <h1 className='constitiuents'>{voters}</h1>
-        </div>
-        <div className='item'>
-             <h2 className='constitiuents'>voters voted</h2>
-             <hr></hr>
-            <h1 className='constitiuents'>{voted}</h1>
-        </div>
+       
         </div>
     )
 }
