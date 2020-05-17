@@ -26,7 +26,7 @@ class SignIn extends React.Component{
         handleSubmit=(event)=>{
             event.preventDefault();
             if(this.state.email===this.state.admin&&this.state.adminpassword===this.state.password){
-                this.props.history.push("/balot-registeration")
+                this.props.history.push("/constituent/unused-ballots")
             }
             else if(this.state.email===this.state.region&&this.state.regionpassword===this.state.password){
                 this.props.history.push("/region/Home")
