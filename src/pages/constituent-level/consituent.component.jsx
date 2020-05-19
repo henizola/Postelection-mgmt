@@ -1,8 +1,13 @@
 import React from "react"
 import Form from "../../components/Form/form.component"
-import "./consituent.styles.scss"
+
 import CustomButton from "../../components/custom-button/custom-button.component"
 import { RegionContext } from "../../context/regional-context/regional-context.context"
+import {
+  ConstContainer,
+  ProgressBar,
+  BalotRegstration,
+} from "./consituent.styles"
 class ConstituentLevel extends React.Component {
   constructor(props) {
     super(props)
@@ -13,7 +18,7 @@ class ConstituentLevel extends React.Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target
     this.setState({ [name]: value })
   }
@@ -22,16 +27,17 @@ class ConstituentLevel extends React.Component {
     console.log(this.props.history.location.pathname)
     return (
       <RegionContext.Consumer>
-        {(context) => (
-          <div className="const-container">
-            <hr className="progress-bar"></hr>
-            <div className="balot-regstration">
+        {context => (
+          <div>
+            <ProgressBar></ProgressBar>
+
+            <ConstContainer>
               {this.props.history.location.pathname ===
               "/constituent/unused-ballots" ? (
                 <form
-                  onSubmit={(event) => {
+                  onSubmit={event => {
                     event.preventDefault()
-                    this.props.history.push("/region/Constitiuents")
+                    this.props.history.push("/")
                     context.addData(
                       this.state.unused,
                       this.state.votes,
@@ -39,37 +45,43 @@ class ConstituentLevel extends React.Component {
                     )
                   }}
                 >
-                  <h3>provide the first number of unused ballots</h3>
-                  <Form
-                    name="unused"
-                    value={this.state.unused}
-                    label="Unused Ballot nummber"
-                    type="text"
-                    required
-                    handleChange={this.handleChange}
-                  />
-                  <Form
-                    name="wasted"
-                    value={this.state.wasted}
-                    label="wasted ballot number"
-                    type="text"
-                    required
-                    handleChange={this.handleChange}
-                  />
-                  <Form
-                    name="votes"
-                    value={this.state.votes}
-                    label="wasted ballot number"
-                    type="text"
-                    required
-                    handleChange={this.handleChange}
-                  />
-                  <CustomButton>Next</CustomButton>
+                  <BalotRegstration>
+                    <Form
+                      name="unused"
+                      value={this.state.unused}
+                      label="Unused Ballot nummber"
+                      type="text"
+                      required
+                      handleChange={this.handleChange}
+                    />
+                  </BalotRegstration>
+
+                  <BalotRegstration>
+                    <Form
+                      name="wasted"
+                      value={this.state.wasted}
+                      label="wasted ballot number"
+                      type="text"
+                      required
+                      handleChange={this.handleChange}
+                    />
+                  </BalotRegstration>
+                  <BalotRegstration>
+                    <Form
+                      name="votes"
+                      value={this.state.votes}
+                      label="wasted ballot number"
+                      type="text"
+                      required
+                      handleChange={this.handleChange}
+                    />
+                    <CustomButton>Next</CustomButton>
+                  </BalotRegstration>
                 </form>
               ) : (
                 <div></div>
               )}
-            </div>
+            </ConstContainer>
           </div>
         )}
       </RegionContext.Consumer>
