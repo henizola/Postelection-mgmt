@@ -1,21 +1,21 @@
-.const-container{
-    display: grid;
-    grid-template-row: 100px 1fr;
-    grid-template-areas:"progress" "form";
+.const-container {
+  display: grid;
+  grid-template-row: 100px 1fr;
+  grid-template-areas: "progress" "form";
 }
-.balot-regstration{
-    grid-area: form;
-    width: 40vw;
-    display: grid;
-    grid-template-columns:  1fr;
-    grid-gap:150px;
-    margin:auto;
+.balot-regstration {
+  grid-area: form;
+  width: 40vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 150px;
+  margin: auto;
 }
-.progress-bar{
-    width: 70vw;
-    height: 1px;
-    border-radius: 5px 5px;
-    border:2px solid rgb(28,129,129);
-    grid-area: progress;
-    background-color: rgb(28,129,129);
+.progress-bar {
+  width: 70vw;
+  height: 1px;
+  border-radius: 5px 5px;
+  border: 2px solid rgb(28, 129, 129);
+  grid-area: progress;
+  background-color: rgb(28, 129, 129);
 }
