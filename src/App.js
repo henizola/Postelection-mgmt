@@ -6,6 +6,7 @@ import { Route } from "react-router-dom"
 import RegionalDashBoard from "./pages/regional-level/dash-board.component"
 import ConstituentLevel from "./pages/constituent-level/consituent.component"
 import { RegionProvider } from "./context/regional-context/regional-context.context"
+import MyModal from "./components/modal/modal.component"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" component={SignIn} />
           <Route path="/region" component={RegionalDashBoard} />
           <Route path="/constituent" component={ConstituentLevel} />
+          <Route path="/modal" component={MyModal} />
         </div>
       </RegionProvider>
       <div className="footer"></div>

@@ -1,6 +1,6 @@
 import React from "react"
 import Form from "../../components/Form/form.component"
-
+import MyModal from "../../components/modal/modal.component"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import { RegionContext } from "../../context/regional-context/regional-context.context"
 import {
@@ -15,6 +15,7 @@ class ConstituentLevel extends React.Component {
       unused: "",
       wasted: "",
       votes: "",
+      modalShow: false,
     }
   }
 
@@ -22,7 +23,9 @@ class ConstituentLevel extends React.Component {
     const { name, value } = event.target
     this.setState({ [name]: value })
   }
-
+  handlehide = () => {
+    this.setState({ modalShow: true })
+  }
   render() {
     console.log(this.props.history.location.pathname)
     return (
@@ -37,12 +40,13 @@ class ConstituentLevel extends React.Component {
                 <form
                   onSubmit={event => {
                     event.preventDefault()
-                    this.props.history.push("/")
+                    this.props.history.push("/modal")
                     context.addData(
                       this.state.unused,
                       this.state.votes,
                       this.state.wasted
                     )
+                    this.setState({ modalShow: true })
                   }}
                 >
                   <BalotRegstration>

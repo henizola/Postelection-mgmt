@@ -45,12 +45,12 @@ export class RegionProvider extends React.Component {
   getRegisterd = () => {
     let regist = 0
     console.log(this.state.constitiuents)
-    this.state.constitiuents.map((city) => (regist += city.votersRegisterd))
+    this.state.constitiuents.map(city => (regist += city.votersRegisterd))
     return regist
   }
   getVoted = () => {
     let vote = 0
-    this.state.constitiuents.map((city) => (vote += city.votes))
+    this.state.constitiuents.map(city => (vote += parseInt(city.votes, 10)))
     return vote
   }
   addData = (west, vote, unused) => {
