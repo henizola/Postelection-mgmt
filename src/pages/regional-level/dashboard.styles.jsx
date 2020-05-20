@@ -1,23 +1,17 @@
-.dashboard-container {
+import styled from "styled-components"
+
+export const DashboardContainer = styled.div`
   width: 90vw;
   margin: auto;
   margin-top: 10px;
   display: grid;
+
   grid-gap: 2px;
   grid-template-columns: 300px 1fr;
   grid-template-rows: 80vh;
   grid-template-areas: "dashboard display";
   border-radius: 10px 10px;
-}
-.display {
-  grid-area: display;
-}
-.dashboard {
-  grid-area: dashboard;
-  border-right: 2px solid rgba(128, 128, 128, 0.5);
-}
-@media (max-width: 768px) {
-  .dashboard-container {
+  @media (max-width: 768px) {
     width: 90vw;
     margin: auto;
     margin-top: 10px;
@@ -29,16 +23,22 @@
     border-radius: 10px 10px;
     margin-bottom: 10px;
   }
-  .display {
+`
+export const Display = styled.div`
+  grid-area: display;
+  @media (max-width: 768px) {
     grid-area: display;
     width: 100%;
     margin-top: 25px;
   }
-  .dashboard {
+`
+export const Dashboards = styled.div`
+  grid-area: dashboard;
+  @media (max-width: 768px) {
     grid-area: dashboard;
     border-right: 2px solid rgba(128, 128, 128, 0.5);
     display: grid;
     margin-bottom: 10px;
     grid-template-columns: repeat(auto-fill, 140px);
   }
-}
+`

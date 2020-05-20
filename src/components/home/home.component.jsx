@@ -1,35 +1,40 @@
 import React from "react"
-import "./home.styles.css"
 import { RegionContext } from "../../context/regional-context/regional-context.context"
+import {
+  HomeContainer,
+  Item,
+  Constitiuents,
+  HorizontalLine,
+} from "./home.styles"
 const Home = ({ region }) => {
   return (
-    <div className="home-container">
+    <HomeContainer>
       <RegionContext.Consumer>
-        {(context) => (
+        {context => (
           <React.Fragment>
-            <div className="item">
-              <h2 className="constitiuents">
+            <Item>
+              <Constitiuents>
                 constituents in region {context.region.name}
-              </h2>
-              <hr></hr>
-              <h1 className="constitiuents">
+              </Constitiuents>
+              <HorizontalLine></HorizontalLine>
+              <Constitiuents>
                 {context.region.constitiuents.length}
-              </h1>
-            </div>
-            <div className="item">
-              <h2 className="constitiuents">voters Registerd</h2>
-              <hr></hr>
-              <h1 className="constitiuents">{context.registerd()}</h1>
-            </div>
-            <div className="item">
-              <h2 className="constitiuents">voters voted</h2>
-              <hr></hr>
-              <h1 className="constitiuents">{context.getVoted()}</h1>
-            </div>
+              </Constitiuents>
+            </Item>
+            <Item>
+              <Constitiuents>voters Registerd</Constitiuents>
+              <HorizontalLine></HorizontalLine>
+              <Constitiuents>{context.registerd()}</Constitiuents>
+            </Item>
+            <Item>
+              <Constitiuents>voters voted</Constitiuents>
+              <HorizontalLine></HorizontalLine>
+              <Constitiuents>{context.getVoted()}</Constitiuents>
+            </Item>
           </React.Fragment>
         )}
       </RegionContext.Consumer>
-    </div>
+    </HomeContainer>
   )
 }
 export default Home
