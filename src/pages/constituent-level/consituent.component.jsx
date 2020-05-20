@@ -1,6 +1,5 @@
 import React from "react"
 import Form from "../../components/Form/form.component"
-import MyModal from "../../components/modal/modal.component"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import { RegionContext } from "../../context/regional-context/regional-context.context"
 import {
@@ -15,6 +14,7 @@ class ConstituentLevel extends React.Component {
       unused: "",
       wasted: "",
       votes: "",
+      Name: "",
       modalShow: false,
     }
   }
@@ -40,15 +40,28 @@ class ConstituentLevel extends React.Component {
                 <form
                   onSubmit={event => {
                     event.preventDefault()
-                    this.props.history.push("/modal")
+                    this.props.history.push("/Submit")
                     context.addData(
                       this.state.unused,
                       this.state.votes,
-                      this.state.wasted
+                      this.state.wasted,
+                      this.state.Name
                     )
                     this.setState({ modalShow: true })
                   }}
                 >
+                  {" "}
+                  <BalotRegstration>
+                    {" "}
+                    <Form
+                      name="Name"
+                      value={this.state.Name}
+                      label="Name of constituent"
+                      type="text"
+                      required
+                      handleChange={this.handleChange}
+                    />
+                  </BalotRegstration>
                   <BalotRegstration>
                     <Form
                       name="unused"
@@ -59,7 +72,6 @@ class ConstituentLevel extends React.Component {
                       handleChange={this.handleChange}
                     />
                   </BalotRegstration>
-
                   <BalotRegstration>
                     <Form
                       name="wasted"
@@ -74,7 +86,7 @@ class ConstituentLevel extends React.Component {
                     <Form
                       name="votes"
                       value={this.state.votes}
-                      label="wasted ballot number"
+                      label="Votes  "
                       type="text"
                       required
                       handleChange={this.handleChange}

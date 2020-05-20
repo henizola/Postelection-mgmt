@@ -109,15 +109,13 @@ class RegionalDashBoard extends React.Component {
             <Dashboard props={this.props} name={"Home"} />
           </div>
           <Dashboard props={this.props} name={"Constitiuents"} />
-          <Dashboard props={this.props} name={"Other"} />
+          <Dashboard props={this.props} name={"Submit"} />
         </div>
 
         <div className="display">
           {this.props.history.location.pathname === "/region/Home" ||
           this.props.history.location.pathname === "/region" ? (
             <Home {...this.state} />
-          ) : this.props.history.location.pathname === "/region/Other" ? (
-            <Home name={"home"} />
           ) : this.props.history.location.pathname ===
             "/region/Constitiuents" ? (
             <Constituent {...this.state} />

@@ -7,40 +7,7 @@ export class RegionProvider extends React.Component {
     isSigndIn: true,
     name: "Oromiya",
     ballotsIssued: [1000, 2000],
-    constitiuents: [
-      {
-        name: "Dukam",
-        balotsIssued: [10400, 10600],
-        ballotsWasted: 0,
-        ballotsUnused: 0,
-        votersRegisterd: 89,
-        votes: 0,
-      },
-      {
-        name: "Mojo",
-        balotsIssued: [10600, 10800],
-        ballotsWasted: 0,
-        ballotsUnused: 0,
-        votersRegisterd: 89,
-        votes: 0,
-      },
-      {
-        name: "Gelan",
-        balotsIssued: [10800, 11000],
-        ballotsWasted: 0,
-        ballotsUnused: 0,
-        votersRegisterd: 89,
-        votes: 0,
-      },
-      {
-        name: "Adama",
-        balotsIssued: [10100, 10200],
-        ballotsWasted: 0,
-        ballotsUnused: 0,
-        votes: 0,
-        votersRegisterd: 89,
-      },
-    ],
+    constitiuents: [],
   }
   getRegisterd = () => {
     let regist = 0
@@ -53,11 +20,14 @@ export class RegionProvider extends React.Component {
     this.state.constitiuents.map(city => (vote += parseInt(city.votes, 10)))
     return vote
   }
-  addData = (west, vote, unused) => {
+  addData = (west, vote, unused, cname) => {
     let used = [...this.state.constitiuents]
     used.push({
-      name: "Bishoftu",
-      balotsIssued: [10200, 10400],
+      name: cname,
+      balotsIssued: [
+        Math.floor(Math.random() * 1000) + 1,
+        Math.floor(Math.random() * 2000) + 1,
+      ],
       ballotsWasted: west,
       ballotsUnused: unused,
       votersRegisterd: 89,

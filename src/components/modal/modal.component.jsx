@@ -2,7 +2,6 @@ import React from "react"
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
 import FormInput from "../Form/form.component"
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup"
 
 const MyModal = props => {
   return (
@@ -32,7 +31,7 @@ const MyModal = props => {
         }}
       >
         <FormInput name="complient" lable="Complient" required />
-        <Button type="submit">Close</Button>
+        <Button type="submit">Submit</Button>
       </form>
     </Modal>
   )

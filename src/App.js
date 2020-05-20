@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/" component={SignIn} />
           <Route path="/region" component={RegionalDashBoard} />
           <Route path="/constituent" component={ConstituentLevel} />
-          <Route path="/modal" component={MyModal} />
+          <Route path="/Submit" component={MyModal} />
         </div>
       </RegionProvider>
       <div className="footer"></div>
